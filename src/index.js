@@ -8,7 +8,7 @@
     });
 
     const image = {
-        url: '/img/psyduck.png',
+        url: '/marker-mover/img/psyduck.png',
         size: new google.maps.Size(72, 72),
         origin: new google.maps.Point(0, 0),
         anchor: new google.maps.Point(36, 36) 
