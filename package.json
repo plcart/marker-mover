@@ -1,7 +1,7 @@
 {
   "name": "marker-move",
   "version": "1.0.0",
-  "description": "extension to animate a google maps marker easyly",
+  "description": "Extension to animate a google maps marker easily",
   "main": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
