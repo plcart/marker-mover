@@ -1,5 +1,5 @@
 {
-  "name": "marker-move",
+  "name": "marker-mover",
   "version": "1.0.0",
   "description": "Extension to animate a google maps marker easily",
   "main": "src/index.ts",
