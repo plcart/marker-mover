@@ -11,10 +11,10 @@ google.maps.Marker.prototype.step = 0;
 google.maps.Marker.prototype.iterator = 0;
 google.maps.Marker.prototype.steps = [];
 google.maps.Marker.prototype.curPos = null;
-google.maps.Marker.prototype.animationFrame = function (timespan) {
+google.maps.Marker.prototype.animationFrame = function () {
     this.setPosition(this.steps.shift());
     if (this.steps.length !== 0)
-        requestAnimationFrame(this.animationFrame);
+        requestAnimationFrame(() => this.animationFrame());
     else {
         this.playing = false;
         if (this.queue.length != 0)
@@ -31,6 +31,6 @@ google.maps.Marker.prototype.animateTo = function ({ latLng, duration }: MarkerA
         this.curPos = this.getPosition()
         this.steps = Array.apply(null, { length: duration * 60 }).map((i) => google.maps.geometry.spherical.interpolate(this.curPos, latLng, this.iterator += this.step));
         if (this.steps.length !== 0)
-            requestAnimationFrame(this.animationFrame);
+            requestAnimationFrame(() => this.animationFrame());
     }
 }
