@@ -5,12 +5,6 @@ export interface MarkerAnimation {
     duration: number;
 }
 
-google.maps.Marker.prototype.playing = false;
-google.maps.Marker.prototype.queue = [];
-google.maps.Marker.prototype.step = 0;
-google.maps.Marker.prototype.iterator = 0;
-google.maps.Marker.prototype.steps = [];
-google.maps.Marker.prototype.curPos = null;
 google.maps.Marker.prototype.animationFrame = function () {
     this.setPosition(this.steps.shift());
     if (this.steps.length !== 0)
@@ -21,8 +15,11 @@ google.maps.Marker.prototype.animationFrame = function () {
             this.animateTo(this.queue.shift());
     }
 }
+
 google.maps.Marker.prototype.animateTo = function ({ latLng, duration }: MarkerAnimation) {
     if (this.playing) {
+        if (!this.queue)
+            this.queue = [];
         this.queue.push({ latLng, duration });
     } else {
         this.playing = true;
