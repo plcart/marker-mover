@@ -22,6 +22,7 @@ google.maps.Marker.prototype.animateTo = function ({ latLng, duration }: MarkerA
             this.queue = [];
         this.queue.push({ latLng, duration });
     } else {
+        this.queue = [];
         this.playing = true;
         this.step = (100 / (duration * 6000));
         this.iterator = 0;
